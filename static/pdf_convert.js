@@ -9,18 +9,20 @@ async function rearrangePDF() {
 
         const pdfDoc = await PDFLib.PDFDocument.load(typedArray);
         const totalPages = pdfDoc.getPageCount();
-        const totalPages_4 = Math.ceil(totalPages / 4) * 4
+        const startPage = parseInt(document.getElementById('startPageInput').value);
+
+        const totalPages_4 = Math.ceil((totalPages - startPage) / 4) * 4
 
         let pageOrder = [];
 
-        for (let i = 1; i <= totalPages_4; i += 4) {
+        for (let i = startPage; i < totalPages_4 + startPage; i += 4) {
             pageOrder.push(i);
             pageOrder.push(i + 2);
             pageOrder.push(i + 1);
             pageOrder.push(i + 3);
         }
 
-        const mergedPdfData = await mergePDFs(pdfDoc, pageOrder);
+        const mergedPdfData = await mergePDFs(pdfDoc, pageOrder, startPage);
 
         const blob = new Blob([mergedPdfData], {type: 'application/pdf'});
         const downloadLink = document.getElementById('downloadLink');
@@ -33,7 +35,7 @@ async function rearrangePDF() {
     fileReader.readAsArrayBuffer(file);
 }
 
-async function mergePDFs(pdfDoc, pageOrder) {
+async function mergePDFs(pdfDoc, pageOrder, startPage) {
     const mergedPdf = await PDFLib.PDFDocument.create();
 
     for (let i = 0; i < pageOrder.length; i++) {
@@ -42,7 +44,7 @@ async function mergePDFs(pdfDoc, pageOrder) {
             const [copiedPage] = await mergedPdf.copyPages(pdfDoc, [pageNum - 1]);
             mergedPdf.addPage(copiedPage);
         } else {
-            const firstPage = pdfDoc.getPages()[0];
+            const firstPage = pdfDoc.getPages()[startPage];
             const {width, height} = firstPage.getSize();
             const blankPage = mergedPdf.addPage([width, height]);
         }
