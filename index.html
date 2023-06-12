@@ -27,7 +27,7 @@
     <table>
         <tr>
             <td>
-                <label for="startPageInput">Datasheet Starting Page:</label>
+                <label for="startPageInput">Datasheets Starting Page:</label>
             </td>
             <td>
                 <input type="number" id="startPageInput" class="small-input" min="1" required value="7">
@@ -35,7 +35,7 @@
         </tr>
         <tr>
             <td>
-                <p>Cards Per Page:</p>
+                <label>Cards Per Page:</label>
             </td>
             <td>
                 <input type="radio" name="cardsPerPage" id="cardsPerPage2" value="2" checked="checked">
@@ -57,26 +57,45 @@
     <h4>How to use this tool</h4>
     <ul>
         <li>1) Select official Warhammer 40k 10th Edition PDF Index File</li>
-        <li>2) Enter Datasheet Starting Page (by default 7)</li>
-        <li>3) Click "Upload and Convert"</li>
-        <li>4) Download Converted PDF (link should appear automatically)</li>
-        <li>5) Print and use for your game!</li>
+        <li>2) Enter Datasheets Starting Page (by default 7)</li>
+        <li>3) Select Cards Per Page value (by default 2)</li>
+        <li>4) Click "Upload and Convert"</li>
+        <li>5) Download Converted PDF (link should appear automatically)</li>
+        <li>6) Print and use for your game!</li>
     </ul>
-    <h4>Print settings</h4>
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAcrobat" aria-expanded="false" aria-controls="collapseExample">
+    <hr/>
+    <h4>Print settings for 2 Cards Per Page</h4>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAcrobat_2" aria-expanded="false" aria-controls="collapseExample">
         Click here to see Acrobat Reader Settings
     </button>
 
-    <div class="collapse" id="collapseAcrobat">
-        <img src="./static/AcrobatReader.png" alt="Description">
+    <div class="collapse" id="collapseAcrobat_2">
+        <img src="./static/AcrobatReader_2.png" alt="Settings for Acrobat Reader">
     </div>
     <br><br>
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFoxit" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFoxit_2" aria-expanded="false" aria-controls="collapseExample">
         Click here to see Foxit Reader Settings
     </button>
 
-    <div class="collapse" id="collapseFoxit">
-        <img src="./static/FoxitReader.png" alt="Description">
+    <div class="collapse" id="collapseFoxit_2">
+        <img src="./static/FoxitReader_2.png" alt="Settings for Foxit Reader">
+    </div>
+<hr/>
+     <h4>Print settings for 4 Cards Per Page</h4>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAcrobat_4" aria-expanded="false" aria-controls="collapseExample">
+        Click here to see Acrobat Reader Settings
+    </button>
+
+    <div class="collapse" id="collapseAcrobat_4">
+        <img src="./static/AcrobatReader_4.png" alt="Settings for Acrobat Reader">
+    </div>
+    <br><br>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFoxit_4" aria-expanded="false" aria-controls="collapseExample">
+        Click here to see Foxit Reader Settings
+    </button>
+
+    <div class="collapse" id="collapseFoxit_4">
+        <img src="./static/FoxitReader_4.png" alt="Settings for Foxit Reader">
     </div>
 </div>
 </body>

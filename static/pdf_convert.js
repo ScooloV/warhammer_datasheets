@@ -24,7 +24,7 @@ async function rearrangePDF() {
 
         const blob = new Blob([mergedPdfData], {type: 'application/pdf'});
         const downloadLink = document.getElementById('downloadLink');
-        const fileName = file.name.replace(/(\.pdf)$/i, '_converted$1');
+        const fileName = file.name.replace(/(\.pdf)$/i, `_converted_${cardsPerPage}perPage$1`);
         downloadLink.href = URL.createObjectURL(blob);
         downloadLink.download = fileName;
         document.getElementById('downloadLinkContainer').style.display = 'block';
